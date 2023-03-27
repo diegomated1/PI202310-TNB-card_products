@@ -5,9 +5,9 @@ dotenv.config();
 
 import express from 'express';
 import morgan from 'morgan';
-import commentsRouter from './src/router/comments.router.js'
-import userRouter from './src/router/user.router.js'
-import productsRouter from './src/router/products.router.js';
+import commentsRouter from './router/comments.router.js'
+import userRouter from './router/user.router.js'
+import productsRouter from './router/products.router.js';
 var cookieParser = require ('cookie-parser');
 
 class Server{

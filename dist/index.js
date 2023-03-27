@@ -8,9 +8,9 @@ const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const express_1 = __importDefault(require("express"));
 const morgan_1 = __importDefault(require("morgan"));
-const comments_router_js_1 = __importDefault(require("./src/router/comments.router.js"));
-const user_router_js_1 = __importDefault(require("./src/router/user.router.js"));
-const products_router_js_1 = __importDefault(require("./src/router/products.router.js"));
+const comments_router_js_1 = __importDefault(require("./router/comments.router.js"));
+const user_router_js_1 = __importDefault(require("./router/user.router.js"));
+const products_router_js_1 = __importDefault(require("./router/products.router.js"));
 var cookieParser = require('cookie-parser');
 class Server {
     constructor() {

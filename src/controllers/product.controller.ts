@@ -1,12 +1,13 @@
 import Express, { Request, Response, NextFunction }  from "express";
 import productsModel from "../models/products.model";
+import { where } from "sequelize";
 
 
 
-const getProduct = async (req: Request, res: Response, next: NextFunction) => {
+const getProductByID = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const { id_producto } = req.params;
-        const producto = await productsModel.findByPk(id_producto);
+        const { id_carta } = req.params;
+        const producto = await productsModel.findOne({ where: { id_carta: id_carta } });
         if (producto) {
             res.status(200).json({ status: true, data: producto });
         } else {
@@ -16,7 +17,6 @@ const getProduct = async (req: Request, res: Response, next: NextFunction) => {
         console.log((error as Error).message);
         res.status(500).json({ status: false, message: 'Server internal error' });
     }
-
 }
 
 const editProduct = async (req: Request, res: Response, next: NextFunction) => {
@@ -28,9 +28,7 @@ const editProduct = async (req: Request, res: Response, next: NextFunction) => {
 }
 
 
-
-
 export default {
-    getProduct,
+    getProductByID,
     editProduct,
 }

@@ -12,8 +12,7 @@ class ProductsRouter {
     }
 
     private config(){
-
-        this.router.route('/product/:id_producto').get(productsController.getProduct);
+        this.router.route('/product/:id_carta').get(productsController.getProductByID);
     }
 }
 
