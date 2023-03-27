@@ -1,14 +1,13 @@
 
 import cors from 'cors';
 import dotenv from 'dotenv';
-dotenv.config();
-
 import express from 'express';
 import morgan from 'morgan';
 import commentsRouter from './router/comments.router.js'
 import userRouter from './router/user.router.js'
 import productsRouter from './router/products.router.js';
-var cookieParser = require ('cookie-parser');
+import deckRouter from './router/deck.router.js';
+import cookieParser from "cookie-parser";
 
 class Server{
 
@@ -22,6 +21,7 @@ class Server{
     }
 
     private config(){
+        dotenv.config();
         this.app.use(cors({
             origin: process.env.CLIENT_HOST! || '*',
             credentials: true
@@ -37,6 +37,7 @@ class Server{
         this.app.use(userRouter.router);
         this.app.use(commentsRouter.router);
         this.app.use(productsRouter.router);
+        this.app.use(deckRouter.router);
 
     }
 
